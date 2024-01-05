@@ -3,33 +3,33 @@ package main
 import (
 	"fmt"
   "flag"
-	"math/rand"
-	"strings"
 
-	"surfSum-CLI/surfWords"
+	"surfSum-CLI/grammar"
 )
 
 func main() {
-  // Shaka Brah! starting text bool flag
   startText := flag.Bool("sb", false, "start with \"Shaka Brah!\"")
+  paragraghNum := flag.Int("p", 1, "number of paragraghs (max 10)")
   flag.Parse()
+
   if *startText {
     fmt.Printf("Shaka Brah! ")
   }
 
-  // Sentence building (6-9 words each)
-  wordCount := rand.Intn(5) + 5
-  var sentence []string
-
-  // Appending first word (capitalized)
-  word := surfwords.Words()
-  sentence = append(sentence, word)
-
-  // Appending lowercase words for remaining word count
-  for i := 1; i <= wordCount ; i++ {
-    sentence = append(sentence, strings.ToLower(surfwords.Words()))
+  // Max number of paragraghs returned
+  if *paragraghNum > 10 {
+    *paragraghNum = 10
   }
 
-  // Final print
-  fmt.Println(strings.Join(sentence, " ") + ".")
+  // Print suggestions if no flags passed
+  if !*startText && *paragraghNum == 1 {
+    fmt.Println("Hey kook! Try passing some flags! --help/-h to see options.")
+    fmt.Printf("\n")
+  }
+
+  for i := 1; i <= *paragraghNum; i++ {
+    paragragh := grammar.ParagraghBuilder()
+    fmt.Println(paragragh)
+    fmt.Printf("\n")
+  }
 }
