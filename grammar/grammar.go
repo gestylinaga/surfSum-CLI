@@ -6,39 +6,50 @@ import (
   "math/rand"
 
   "surfSum-CLI/surfWords"
+  "surfSum-CLI/latinWords"
 )
 
-func sentenceBuilder() string{
-  // Sentence building (6-9 words each)
-  wordCount := rand.Intn(5) + 5
+func sentenceBuilder(latin bool) string {
+  // Randomizing word count per sentence
+  wordCount := rand.Intn(5) + 7
   var sentence []string
 
-  // Appending first word (capitalized)
+  // Appending first word (capitalized; always a surf word)
   word := surfwords.Words()
   sentence = append(sentence, word)
 
   // Appending lowercase words for remaining word count
   for i := 1; i <= wordCount ; i++ {
-    // Random chance to insert commas, every 3 words
-    if i % 3 == 0 {
-      if rand.Intn(3) == 1 {
-        sentence = append(sentence, strings.ToLower(surfwords.Words()) + ",")
-      }
+    // Chance to use latin words if latin flag is passed
+    if latin && rand.Intn(3) == 1 {
+      word = latinwords.Words()
+    } else {
+      word = surfwords.Words()
     }
-    sentence = append(sentence, strings.ToLower(surfwords.Words()))
+    // Random chance to insert commas, every 3 words (except last word)
+    if i % 3 == 0  && i != wordCount {
+      if rand.Intn(4) == 1 {
+        sentence = append(sentence, (strings.ToLower(word) + ","))
+      }
+    } else {
+      sentence = append(sentence, strings.ToLower(word))
+    }
   }
 
-  // Final print
+  // Finalized sentence
   return fmt.Sprintf(strings.Join(sentence, " ") + ". ")
 }
 
-func ParagraghBuilder() string{
-  paragraghLength := rand.Intn(5) + 5
+func ParagraghBuilder(latin bool) string {
+  // Randomizing number of sentences
+  paragraghLength := rand.Intn(6) + 5
   var paragragh []string
+
   for i := 1; i <= paragraghLength; i++ {
-    sentence := sentenceBuilder()
+    sentence := sentenceBuilder(latin)
     paragragh = append(paragragh, sentence)
   }
+
   return strings.Join(paragragh, "")
 }
 

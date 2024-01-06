@@ -6,6 +6,11 @@ replace surfSum-CLI/surfWords => ./surfWords
 
 require surfSum-CLI/grammar v0.0.0-00010101000000-000000000000
 
-require surfSum-CLI/surfWords v0.0.0-00010101000000-000000000000 // indirect
+require (
+	surfSum-CLI/latinWords v0.0.0-00010101000000-000000000000 // indirect
+	surfSum-CLI/surfWords v0.0.0-00010101000000-000000000000 // indirect
+)
 
 replace surfSum-CLI/grammar => ./grammar
+
+replace surfSum-CLI/latinWords => ./latinWords

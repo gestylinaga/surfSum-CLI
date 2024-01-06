@@ -5,9 +5,7 @@ Inspired by [hipsum](https://hipsum.co) - Hipster ipsum
 
 
 <!-- TODO:
-    - add more surf words
-    - option to mix in latin lorem ipsum (flag)
-        - add file for latin words
+    - add usage instructions/cheatsheet to README.md
 -->
 
 <!-- Done:
@@ -22,4 +20,6 @@ Inspired by [hipsum](https://hipsum.co) - Hipster ipsum
     - variable paragraph lengths
     - option for returned paragraphs (flag)
     - show help/available options if no flags passed
+    - option to mix in latin lorem ipsum (flag)
+        - add file for latin words
 -->

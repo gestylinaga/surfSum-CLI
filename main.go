@@ -8,8 +8,11 @@ import (
 )
 
 func main() {
+  // Option flags
   startText := flag.Bool("sb", false, "start with \"Shaka Brah!\"")
-  paragraghNum := flag.Int("p", 1, "number of paragraghs (max 10)")
+  latin := flag.Bool("l", false, "mix surf speak with some latin")
+  paragraghNum := flag.Int("p", 1, "number of paragraghs (max p=10)")
+
   flag.Parse()
 
   if *startText {
@@ -22,14 +25,15 @@ func main() {
   }
 
   // Print suggestions if no flags passed
-  if !*startText && *paragraghNum == 1 {
+  if !*startText && !*latin && *paragraghNum == 1 {
     fmt.Println("Hey kook! Try passing some flags! --help/-h to see options.")
     fmt.Printf("\n")
   }
 
   for i := 1; i <= *paragraghNum; i++ {
-    paragragh := grammar.ParagraghBuilder()
+    paragragh := grammar.ParagraghBuilder(*latin)
     fmt.Println(paragragh)
     fmt.Printf("\n")
   }
 }
+
