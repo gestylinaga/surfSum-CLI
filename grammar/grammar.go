@@ -40,16 +40,16 @@ func sentenceBuilder(latin bool) string {
   return fmt.Sprintf(strings.Join(sentence, " ") + ". ")
 }
 
-func ParagraghBuilder(latin bool) string {
+func ParagraphBuilder(latin bool) string {
   // Randomizing number of sentences
-  paragraghLength := rand.Intn(6) + 5
-  var paragragh []string
+  paragraphLength := rand.Intn(6) + 5
+  var paragraph []string
 
-  for i := 1; i <= paragraghLength; i++ {
+  for i := 1; i <= paragraphLength; i++ {
     sentence := sentenceBuilder(latin)
-    paragragh = append(paragragh, sentence)
+    paragraph = append(paragraph, sentence)
   }
 
-  return strings.Join(paragragh, "")
+  return strings.Join(paragraph, "")
 }
 
