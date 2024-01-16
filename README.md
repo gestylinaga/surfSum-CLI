@@ -1,5 +1,7 @@
 # 🌊 surfSum CLI 🏄
-Lorem ipsum in surf slang 🤙 .
+Lorem ipsum in surf slang 🤙 
+
+Check out the [browser version here](https://gesty.dev/surfSum)
 
 Inspired by [hipsum](https://hipsum.co) - Hipster Ipsum
 
@@ -10,7 +12,7 @@ To run:
 ```
 ### Optional Flags
 | Flags / Options | | Description |
-| --- | --- | ---|
+| :-: | --- | ---|
 | -sb | | adds "Shaka Brah!" to the start |
 | -l | | mixes latin words in with the surf lingo |
 | -p=<a number\> | | number of paragraphs to return (default 1, max 10) |
